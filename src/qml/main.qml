@@ -25,9 +25,9 @@ PageStackWindow {
                 onClicked: pageStack.pop
             }
             ToolIcon {
-                id: addButton
+                id: refreshButton
                 iconId: "icon-m-toolbar-refresh"
-                onClicked: { console.log("Refresh")}
+                onClicked: { photoFeedModel.reload() }
             }
             ToolIcon {
                 id: menuButton

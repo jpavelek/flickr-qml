@@ -53,7 +53,7 @@ Page {
 
     GridView {
         id: gridComponent
-        anchors { fill: parent; margins: UI.LISTVIEW_MARGIN }
+        anchors { fill: parent; }
         property int thumbnailsInRow: 4
 
         function cellWidth() {
