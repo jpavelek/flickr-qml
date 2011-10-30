@@ -8,7 +8,7 @@ PageStackWindow {
     ThumbnailPage {
         id: thumbnailPage
 
-        anchors { fill: parent; }
+        anchors.fill: parent
         inPortrait: appWindow.inPortrait
         model: PhotoFeedModel {
             id: photoFeedModel
@@ -37,8 +37,7 @@ PageStackWindow {
         }
         onPhotoClicked: {
             largeImagePage.setPhotoData(url, photoWidth, photoHeight);
-            detailsPage.setPhotoData(author, date, description, tags, title,
-                                     photoWidth, photoHeight);
+            detailsPage.setPhotoData(author, date, description, tags, title, photoWidth, photoHeight);
             pageStack.push(largeImagePage);
         }
 

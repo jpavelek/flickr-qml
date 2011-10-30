@@ -42,7 +42,6 @@ import QtQuick 1.0
 import com.nokia.meego 1.0
 import "UIConstants.js" as UI
 
-
 Page {
     id: thumbnailPage
 
@@ -51,44 +50,30 @@ Page {
 
     signal photoClicked(string url, int photoWidth, int photoHeight, string author, string date, string description, string tags, string title)
 
-    Component {
+
+    GridView {
         id: gridComponent
+        anchors { fill: parent; margins: UI.LISTVIEW_MARGIN }
+        property int thumbnailsInRow: 4
 
-        GridView {
-            property int thumbnailsInRow: 4
+        function cellWidth() {
+            return Math.floor(width / thumbnailsInRow);
+        }
 
-            function cellWidth() {
-                return Math.floor(width / thumbnailsInRow);
+        cacheBuffer: 2 * height
+        cellHeight: cellWidth
+        cellWidth: cellWidth()
+        delegate: GridDelegate {
+            onPhotoClicked: {
+                thumbnailPage.photoClicked(url, photoWidth, photoHeight, author, date, description, tags, title);
             }
+        }
+        model: thumbnailPage.model
 
-            cacheBuffer: 2 * height
-            cellHeight: cellWidth
-            cellWidth: cellWidth()
-            delegate: GridDelegate {
-                onPhotoClicked: {
-                    thumbnailPage.photoClicked(url, photoWidth, photoHeight, author, date, description, tags, title);
-                }
-            }
-            model: thumbnailPage.model
-
-            onWidthChanged: {
-                thumbnailsInRow = width / (UI.THUMBNAIL_WRAPPER_SIDE + UI.THUMBNAIL_SPACING);
-            }
+        onWidthChanged: {
+            thumbnailsInRow = width / (UI.THUMBNAIL_WRAPPER_SIDE + UI.THUMBNAIL_SPACING);
         }
     }
 
-    Component {
-        id: listComponent
-
-        ListView {
-            cacheBuffer: 2 * height
-            delegate: ListDelegate {
-                onPhotoClicked: {
-                    thumbnailPage.photoClicked(url, photoWidth, photoHeight, author, date, description, tags, title);
-                }
-            }
-            model: thumbnailPage.model
-        }
-    }
 }
 
