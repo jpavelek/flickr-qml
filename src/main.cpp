@@ -8,6 +8,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 
     app->setProperty("NoMStyle", true);
     QDeclarativeView *view = new QDeclarativeView();
+    view->setSource(QUrl("qrc:/qml/main.qml"));
 
 #ifdef __arm__
     view->showFullScreen();

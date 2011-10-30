@@ -2,5 +2,11 @@
     <qresource prefix="/">
         <file>qml/main.qml</file>
         <file>data/icons-Applications-flickr.svg</file>
+        <file>qml/UIConstants.js</file>
+        <file>qml/GridDelegate.qml</file>
+        <file>qml/ListDelegate.qml</file>
+        <file>qml/PhotoFeedModel.qml</file>
+        <file>qml/Thumbnail.qml</file>
+        <file>qml/ThumbnailPage.qml</file>
     </qresource>
 </RCC>
