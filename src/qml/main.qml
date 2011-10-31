@@ -25,6 +25,12 @@ PageStackWindow {
                 iconId: "icon-m-toolbar-refresh"
                 onClicked: { photoFeedModel.reload() }
             }
+            BusyIndicator {
+                platformStyle: BusyIndicatorStyle { size: "medium" }
+                running: photoFeedModel.progress != 1
+                visible: photoFeedModel.progress != 1
+            }
+
             ToolIcon {
                 id: menuButton
                 iconId: "toolbar-view-menu"
