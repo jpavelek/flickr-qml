@@ -11,5 +11,6 @@
         <file>qml/ThumbnailPage.qml</file>
         <file>qml/UIConstants.js</file>
         <file>data/icon-m-toolbar-save-image.svg</file>
+        <file>data/searchbar-search-tags.svg</file>
     </qresource>
 </RCC>

@@ -51,9 +51,27 @@ FlickrPage {
     signal photoClicked(string url, int photoWidth, int photoHeight, string author, string date, string description, string tags, string title)
 
 
+    TextField {
+        id: searchTags
+        anchors { top:parent.top; left: parent.left; right:parent.right}
+        placeholderText: "Enter search tags"
+        platformStyle: TextFieldStyle { paddingRight: searchButton.width + UI.SEARCH_PADDING_RIGHT }
+        Image {
+            id: searchButton
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right;
+            anchors.rightMargin: UI.SEARCH_PADDING_RIGHT
+            smooth: true
+            fillMode: Image.PreserveAspectFit
+            source: "qrc:/data/searchbar-search-tags.svg"
+
+        }
+
+    }
+
     GridView {
         id: gridComponent
-        anchors { fill: parent; }
+        anchors { top: searchTags.bottom; left:parent.left;right:parent.right; bottom: parent.bottom }
         property int thumbnailsInRow: 4
 
         function cellWidth() {

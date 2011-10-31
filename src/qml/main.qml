@@ -27,10 +27,9 @@ PageStackWindow {
             }
             BusyIndicator {
                 platformStyle: BusyIndicatorStyle { size: "medium" }
-                running: photoFeedModel.progress != 1
-                visible: photoFeedModel.progress != 1
+                running: (photoFeedModel.progress != 1)
+                visible: (photoFeedModel.progress != 1)
             }
-
             ToolIcon {
                 id: menuButton
                 iconId: "toolbar-view-menu"
