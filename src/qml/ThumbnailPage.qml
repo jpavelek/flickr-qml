@@ -64,6 +64,13 @@ FlickrPage {
         anchors { top:parent.top; left: parent.left; right:parent.right; topMargin: UI.SEARCH_TOP_MARGIN; bottomMargin: UI.SEARCH_BOTTOM_MARGIN }
         placeholderText: "Enter search tags"
         platformStyle: TextFieldStyle { paddingRight: searchButton.width + 2*UI.SEARCH_PADDING_RIGHT }
+        platformSipAttributes: SipAttributes { actionKeyHighlighted: true; actionKeyEnabled: true }
+        onTextChanged: {
+            photoFeedModel.tags = searchTags.text
+            searchTags.focus = false
+            searchTags.platformCloseSoftwareInputPanel()
+        }
+
         Image {
             id: searchButton
             anchors { verticalCenter: parent.verticalCenter; right: parent.right; rightMargin: UI.SEARCH_PADDING_RIGHT }
@@ -75,6 +82,7 @@ FlickrPage {
                 onClicked: {
                     photoFeedModel.tags = searchTags.text
                     console.log("Lets search for " + searchTags.text)
+                    searchTags.platformCloseSoftwareInputPanel()
                 }
             }
         }
