@@ -49,6 +49,15 @@ FlickrPage {
     property bool inPortrait
 
     signal photoClicked(string url, int photoWidth, int photoHeight, string author, string date, string description, string tags, string title)
+    Keys.forwardTo: [(keyCapture), (searchTags)]
+
+    function accept() {
+        //This works only on the device! On desktop it focuses out all the time
+        photoFeedModel.tags = searchTags.text
+        searchTags.focus = false
+        searchTags.platformCloseSoftwareInputPanel()
+        searchButton.focus = true
+    }
 
     GridView {
         id: gridComponent
@@ -77,7 +86,7 @@ FlickrPage {
     Rectangle {
         id: blackFill
         color: "black"
-        anchors {left: parent.left; right: parent.right; top: parent.top }
+        anchors { left: parent.left; right: parent.right; top: parent.top }
         height: searchTags.height + UI.SEARCH_TOP_MARGIN + UI.SEARCH_BOTTOM_MARGIN
     }
 
@@ -87,17 +96,10 @@ FlickrPage {
         placeholderText: "Enter search tags"
         platformStyle: TextFieldStyle { paddingRight: searchButton.width + 2*UI.SEARCH_PADDING_RIGHT ; paddingLeft:searchButton.width + 2*UI.SEARCH_PADDING_RIGHT  }
         platformSipAttributes: SipAttributes { actionKeyHighlighted: true; actionKeyEnabled: true }
-        onTextChanged: {
-            //This works only on the device! On desktop if focuses out all the time
-            photoFeedModel.tags = searchTags.text
-            searchTags.focus = false
-            searchTags.platformCloseSoftwareInputPanel()
-            searchButton.focus = true
-        }
 
         Image {
             id: searchButton
-              anchors { verticalCenter: parent.verticalCenter; right: parent.right; rightMargin: UI.SEARCH_PADDING_RIGHT }
+            anchors { verticalCenter: parent.verticalCenter; right: parent.right; rightMargin: UI.SEARCH_PADDING_RIGHT }
             smooth: true
             fillMode: Image.PreserveAspectFit
             source: "qrc:/data/searchbar-search-tags.svg"
@@ -120,10 +122,15 @@ FlickrPage {
                 onClicked: {
                     photoFeedModel.tags = searchTags.text
                     searchTags.text = ""
-                    //searchTags.platformPreedit = ""
                 }
             }
         }
+    }
+    Item { //This is one ugly hack for the VKB, but works ...
+        id: keyCapture
+
+        Keys.onReturnPressed: accept();
+        Keys.onEnterPressed:  accept();
     }
 
 }
