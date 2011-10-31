@@ -12,5 +12,6 @@
         <file>qml/UIConstants.js</file>
         <file>data/icon-m-toolbar-save-image.svg</file>
         <file>data/searchbar-search-tags.svg</file>
+        <file>data/searchbar-clear-tags.svg</file>
     </qresource>
 </RCC>

@@ -50,51 +50,10 @@ FlickrPage {
 
     signal photoClicked(string url, int photoWidth, int photoHeight, string author, string date, string description, string tags, string title)
 
-    Rectangle {
-        id: blackFill
-        z:20
-        color: "black"
-        anchors {left: parent.left; right: parent.right; top: parent.top }
-        height: searchTags.height + UI.SEARCH_TOP_MARGIN + UI.SEARCH_BOTTOM_MARGIN
-    }
-
-    TextField {
-        id: searchTags
-        z:30
-        anchors { top:parent.top; left: parent.left; right:parent.right; topMargin: UI.SEARCH_TOP_MARGIN; bottomMargin: UI.SEARCH_BOTTOM_MARGIN }
-        placeholderText: "Enter search tags"
-        platformStyle: TextFieldStyle { paddingRight: searchButton.width + 2*UI.SEARCH_PADDING_RIGHT }
-        platformSipAttributes: SipAttributes { actionKeyHighlighted: true; actionKeyEnabled: true }
-        onTextChanged: {
-            photoFeedModel.tags = searchTags.text
-            searchTags.focus = false
-            searchTags.platformCloseSoftwareInputPanel()
-            searchButton.focus = true
-            searchButton.activeFocus()
-        }
-
-        Image {
-            id: searchButton
-            anchors { verticalCenter: parent.verticalCenter; right: parent.right; rightMargin: UI.SEARCH_PADDING_RIGHT }
-            smooth: true
-            fillMode: Image.PreserveAspectFit
-            source: "qrc:/data/searchbar-search-tags.svg"
-            MouseArea {
-                anchors.fill: parent
-                onClicked: {
-                    photoFeedModel.tags = searchTags.text
-                    console.log("Lets search for " + searchTags.text)
-                    searchTags.platformCloseSoftwareInputPanel()
-                }
-            }
-        }
-    }
-
     GridView {
         id: gridComponent
         anchors { top: blackFill.bottom; left:parent.left;right:parent.right; bottom: parent.bottom }
         property int thumbnailsInRow: 4
-        z:10
 
         function cellWidth() {
             return Math.floor(width / thumbnailsInRow);
@@ -112,6 +71,58 @@ FlickrPage {
 
         onWidthChanged: {
             thumbnailsInRow = width / (UI.THUMBNAIL_WRAPPER_SIDE + UI.THUMBNAIL_SPACING);
+        }
+    }
+
+    Rectangle {
+        id: blackFill
+        color: "black"
+        anchors {left: parent.left; right: parent.right; top: parent.top }
+        height: searchTags.height + UI.SEARCH_TOP_MARGIN + UI.SEARCH_BOTTOM_MARGIN
+    }
+
+    TextField {
+        id: searchTags
+        anchors { top:parent.top; left: parent.left; right:parent.right; topMargin: UI.SEARCH_TOP_MARGIN; bottomMargin: UI.SEARCH_BOTTOM_MARGIN }
+        placeholderText: "Enter search tags"
+        platformStyle: TextFieldStyle { paddingRight: searchButton.width + 2*UI.SEARCH_PADDING_RIGHT ; paddingLeft:searchButton.width + 2*UI.SEARCH_PADDING_RIGHT  }
+        platformSipAttributes: SipAttributes { actionKeyHighlighted: true; actionKeyEnabled: true }
+        onTextChanged: {
+            //This works only on the device! On desktop if focuses out all the time
+            photoFeedModel.tags = searchTags.text
+            searchTags.focus = false
+            searchTags.platformCloseSoftwareInputPanel()
+            searchButton.focus = true
+        }
+
+        Image {
+            id: searchButton
+              anchors { verticalCenter: parent.verticalCenter; right: parent.right; rightMargin: UI.SEARCH_PADDING_RIGHT }
+            smooth: true
+            fillMode: Image.PreserveAspectFit
+            source: "qrc:/data/searchbar-search-tags.svg"
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    photoFeedModel.tags = searchTags.text
+                    searchTags.platformCloseSoftwareInputPanel()
+                }
+            }
+        }
+        Image {
+            id: clearButton
+            anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: UI.SEARCH_PADDING_RIGHT }
+            smooth: true
+            fillMode: Image.PreserveAspectFit
+            source: "qrc:/data/searchbar-clear-tags.svg"
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    photoFeedModel.tags = searchTags.text
+                    searchTags.text = ""
+                    //searchTags.platformPreedit = ""
+                }
+            }
         }
     }
 
