@@ -50,29 +50,41 @@ FlickrPage {
 
     signal photoClicked(string url, int photoWidth, int photoHeight, string author, string date, string description, string tags, string title)
 
+    Rectangle {
+        id: blackFill
+        z:20
+        color: "black"
+        anchors {left: parent.left; right: parent.right; top: parent.top }
+        height: searchTags.height + UI.SEARCH_TOP_MARGIN + UI.SEARCH_BOTTOM_MARGIN
+    }
 
     TextField {
         id: searchTags
-        anchors { top:parent.top; left: parent.left; right:parent.right}
+        z:30
+        anchors { top:parent.top; left: parent.left; right:parent.right; topMargin: UI.SEARCH_TOP_MARGIN; bottomMargin: UI.SEARCH_BOTTOM_MARGIN }
         placeholderText: "Enter search tags"
-        platformStyle: TextFieldStyle { paddingRight: searchButton.width + UI.SEARCH_PADDING_RIGHT }
+        platformStyle: TextFieldStyle { paddingRight: searchButton.width + 2*UI.SEARCH_PADDING_RIGHT }
         Image {
             id: searchButton
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right;
-            anchors.rightMargin: UI.SEARCH_PADDING_RIGHT
+            anchors { verticalCenter: parent.verticalCenter; right: parent.right; rightMargin: UI.SEARCH_PADDING_RIGHT }
             smooth: true
             fillMode: Image.PreserveAspectFit
             source: "qrc:/data/searchbar-search-tags.svg"
-
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    photoFeedModel.tags = searchTags.text
+                    console.log("Lets search for " + searchTags.text)
+                }
+            }
         }
-
     }
 
     GridView {
         id: gridComponent
-        anchors { top: searchTags.bottom; left:parent.left;right:parent.right; bottom: parent.bottom }
+        anchors { top: blackFill.bottom; left:parent.left;right:parent.right; bottom: parent.bottom }
         property int thumbnailsInRow: 4
+        z:10
 
         function cellWidth() {
             return Math.floor(width / thumbnailsInRow);
