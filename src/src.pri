@@ -10,10 +10,12 @@ OTHER_FILES += \
     src/qml/GridDelegate.qml \
     src/qml/Thumbnail.qml \
     src/qml/UIConstants.js \
-    src/qml/FlickrPage.qml
+    src/qml/FlickrPage.qml \
+    src/qml/ImageDetails.qml
 
 RESOURCES += \
     src/res.qrc
+
 
 
 

@@ -13,6 +13,7 @@ PageStackWindow {
         model: PhotoFeedModel {
             id: photoFeedModel
         }
+
         tools: commonTools
 
         ToolBarLayout {
@@ -37,9 +38,8 @@ PageStackWindow {
             }
         }
         onPhotoClicked: {
-            largeImagePage.setPhotoData(url, photoWidth, photoHeight);
-            detailsPage.setPhotoData(author, date, description, tags, title, photoWidth, photoHeight);
-            pageStack.push(largeImagePage);
+            imageDetails.setPhotoData(url, photoWidth, photoHeight);
+            pageStack.push(imageDetails);
         }
 
         Menu {
@@ -48,6 +48,10 @@ PageStackWindow {
                 MenuItem { text: "Exit"; onClicked: Qt.quit() }
             }
         }   
+    }
+
+    ImageDetails {
+        id:imageDetails
     }
 }
 

@@ -1,13 +1,14 @@
 <RCC>
     <qresource prefix="/">
-        <file>qml/main.qml</file>
         <file>data/icons-Applications-flickr.svg</file>
-        <file>qml/UIConstants.js</file>
+        <file>data/stripes.png</file>
+        <file>qml/FlickrPage.qml</file>
         <file>qml/GridDelegate.qml</file>
+        <file>qml/ImageDetails.qml</file>
+        <file>qml/main.qml</file>
         <file>qml/PhotoFeedModel.qml</file>
         <file>qml/Thumbnail.qml</file>
         <file>qml/ThumbnailPage.qml</file>
-        <file>data/stripes.png</file>
-        <file>qml/FlickrPage.qml</file>
+        <file>qml/UIConstants.js</file>
     </qresource>
 </RCC>
