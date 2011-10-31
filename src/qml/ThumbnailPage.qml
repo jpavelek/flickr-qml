@@ -69,6 +69,8 @@ FlickrPage {
             photoFeedModel.tags = searchTags.text
             searchTags.focus = false
             searchTags.platformCloseSoftwareInputPanel()
+            searchButton.focus = true
+            searchButton.activeFocus()
         }
 
         Image {
