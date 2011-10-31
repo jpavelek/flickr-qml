@@ -23,6 +23,7 @@ PageStackWindow {
                 id: backButton
                 iconId: "toolbar-back"
                 onClicked: pageStack.pop
+                //TODO - Back button visible only in details view, perhaps in search too
             }
             ToolIcon {
                 id: refreshButton
