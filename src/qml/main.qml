@@ -21,12 +21,6 @@ PageStackWindow {
             visible: true
 
             ToolIcon {
-                id: backButton
-                iconId: "toolbar-back"
-                onClicked: pageStack.pop
-                //TODO - Back button visible only in details view, perhaps in search too
-            }
-            ToolIcon {
                 id: refreshButton
                 iconId: "icon-m-toolbar-refresh"
                 onClicked: { photoFeedModel.reload() }

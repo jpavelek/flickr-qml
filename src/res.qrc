@@ -10,5 +10,6 @@
         <file>qml/Thumbnail.qml</file>
         <file>qml/ThumbnailPage.qml</file>
         <file>qml/UIConstants.js</file>
+        <file>data/icon-m-toolbar-save-image.svg</file>
     </qresource>
 </RCC>

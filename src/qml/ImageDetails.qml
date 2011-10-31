@@ -50,7 +50,6 @@ FlickrPage {
                                    && imageDetails.photoWidth > imageDetails.photoHeight) ? 1024 : 0
                 sourceSize.height: (imageDetails.photoHeight > 1024
                                     && imageDetails.photoHeight > imageDetails.photoWidth) ? 1024 : 0
-
                 onStatusChanged: {
                     if (status == Image.Loading) {
                         // Hide and reset slider: move slider handle to the left
@@ -109,6 +108,15 @@ FlickrPage {
                 pageStack.pop()
             }
         }
+        ToolIcon {
+            id: detailsSaveButton
+            iconSource: "qrc:/data/icon-m-toolbar-save-image.svg"
+            onClicked: {
+               console.log ("TODO - save this image on the device")
+                //TODO
+            }
+        }
+
         ToolIcon {
             id: detailsMenuButton
             iconId: "toolbar-view-menu"
