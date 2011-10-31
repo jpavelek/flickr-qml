@@ -7,5 +7,7 @@
         <file>qml/PhotoFeedModel.qml</file>
         <file>qml/Thumbnail.qml</file>
         <file>qml/ThumbnailPage.qml</file>
+        <file>data/stripes.png</file>
+        <file>qml/FlickrPage.qml</file>
     </qresource>
 </RCC>

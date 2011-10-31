@@ -42,38 +42,18 @@ import QtQuick 1.0
 import com.nokia.meego 1.0
 import "UIConstants.js" as UI
 
-FlickrPage {
-    id: thumbnailPage
+Page {
+    Rectangle {
+        id: background
 
-    property XmlListModel model
-    property bool inPortrait
+        anchors.fill: parent
+        color: UI.FLICKRPAGE_BG_COLOR
 
-    signal photoClicked(string url, int photoWidth, int photoHeight, string author, string date, string description, string tags, string title)
-
-
-    GridView {
-        id: gridComponent
-        anchors { fill: parent; }
-        property int thumbnailsInRow: 4
-
-        function cellWidth() {
-            return Math.floor(width / thumbnailsInRow);
-        }
-
-        cacheBuffer: 2 * height
-        cellHeight: cellWidth
-        cellWidth: cellWidth()
-        delegate: GridDelegate {
-            onPhotoClicked: {
-                thumbnailPage.photoClicked(url, photoWidth, photoHeight, author, date, description, tags, title);
-            }
-        }
-        model: thumbnailPage.model
-
-        onWidthChanged: {
-            thumbnailsInRow = width / (UI.THUMBNAIL_WRAPPER_SIDE + UI.THUMBNAIL_SPACING);
+        Image {
+            source: "qrc:/data/stripes.png"
+            fillMode: Image.Tile
+            anchors.fill: parent
+            opacity: UI.FLICKRPAGE_BG_OPACITY
         }
     }
-
 }
-
