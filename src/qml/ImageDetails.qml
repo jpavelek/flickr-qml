@@ -114,8 +114,7 @@ FlickrPage {
             id: detailsSaveButton
             iconSource: "qrc:/data/icon-m-toolbar-save-image.svg"
             onClicked: {
-               console.log ("TODO - save this image on the device")
-                //TODO
+                imageSaver.save(image, photoUrl)
             }
         }
 

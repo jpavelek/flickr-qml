@@ -1,5 +1,7 @@
 #include <QtGui/QApplication>
 #include <QtDeclarative>
+#include "imagesaver.h"
+
 
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
@@ -17,6 +19,10 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #endif
 
     QObject::connect(view->engine(), SIGNAL(quit()), view, SLOT(close()));
+
+    ImageSaver imageSaver;
+    view->rootContext()->setContextProperty("imageSaver", &imageSaver);
+
 
     return app->exec();
 }

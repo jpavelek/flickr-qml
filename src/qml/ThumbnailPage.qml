@@ -20,7 +20,7 @@
 **     distribution.
 **   * Neither the name of Nokia Corporation and its Subsidiary(-ies) nor
 **     the names of its contributors may be used to endorse or promote
-**     products derived from this software without specific prior written
+**     products derived from tdhis software without specific prior written
 **     permission.
 **
 ** THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
@@ -52,7 +52,6 @@ FlickrPage {
     Keys.forwardTo: [(keyCapture), (searchTags)]
 
     function accept() {
-        //This works only on the device! On desktop it focuses out all the time
         photoFeedModel.tags = searchTags.text
         searchTags.focus = false
         searchTags.platformCloseSoftwareInputPanel()

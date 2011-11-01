@@ -1,4 +1,5 @@
-SOURCES += src/main.cpp
+SOURCES += src/main.cpp \
+    src/imagesaver.cpp
 
 
 OTHER_FILES += \
@@ -15,6 +16,11 @@ OTHER_FILES += \
 
 RESOURCES += \
     src/res.qrc
+
+HEADERS += \
+    src/imagesaver.h
+
+
 
 
 
