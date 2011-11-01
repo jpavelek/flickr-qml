@@ -86,12 +86,17 @@ FlickrPage {
         id: blackFill
         color: "black"
         anchors { left: parent.left; right: parent.right; top: parent.top }
-        height: searchTags.height + UI.SEARCH_TOP_MARGIN + UI.SEARCH_BOTTOM_MARGIN
+        height: searchTags.height + UI.SEARCH_TOP_MARGIN + UI.SEARCH_BOTTOM_MARGIN + titleLogo.height + UI.TITLE_MARGIN_TOP
+    }
+    Image {
+        id: titleLogo
+        source: "qrc:/data/title-logo.svg"
+        anchors { left: parent.left; top: parent.top; leftMargin: UI.TITLE_MARGIN_LEFT; topMargin: UI.TITLE_MARGIN_TOP }
     }
 
     TextField {
         id: searchTags
-        anchors { top:parent.top; left: parent.left; right:parent.right; topMargin: UI.SEARCH_TOP_MARGIN; bottomMargin: UI.SEARCH_BOTTOM_MARGIN }
+        anchors { top:titleLogo.bottom; left: parent.left; right:parent.right; topMargin: UI.SEARCH_TOP_MARGIN; bottomMargin: UI.SEARCH_BOTTOM_MARGIN; leftMargin: UI.SEARCH_SIDE_MARGIN; rightMargin: UI.SEARCH_SIDE_MARGIN }
         placeholderText: "Enter search tags"
         platformStyle: TextFieldStyle { paddingRight: searchButton.width + 2*UI.SEARCH_PADDING_RIGHT ; paddingLeft:searchButton.width + 2*UI.SEARCH_PADDING_RIGHT  }
         platformSipAttributes: SipAttributes { actionKeyHighlighted: true; actionKeyEnabled: true }
