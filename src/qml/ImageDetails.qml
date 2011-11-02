@@ -47,10 +47,8 @@ FlickrPage {
                 smooth: !flickable.movingVertically
                 source: imageDetails.photoUrl
 
-                sourceSize.width: (imageDetails.photoWidth > 1024
-                                   && imageDetails.photoWidth > imageDetails.photoHeight) ? 1024 : 0
-                sourceSize.height: (imageDetails.photoHeight > 1024
-                                    && imageDetails.photoHeight > imageDetails.photoWidth) ? 1024 : 0
+                sourceSize.width: (imageDetails.photoWidth > 1024 && imageDetails.photoWidth > imageDetails.photoHeight) ? 1024 : 0
+                sourceSize.height: (imageDetails.photoHeight > 1024 && imageDetails.photoHeight > imageDetails.photoWidth) ? 1024 : 0
 
                 onStatusChanged: {
                     if (status == Image.Loading) {
