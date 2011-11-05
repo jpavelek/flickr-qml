@@ -55,7 +55,7 @@ var COMMENTSLIST_TOP_MARGIN = 10
 
 // Flickr serves thumbnails that are 79x79, having a larger
 // THUMBNAIL_SIDE may result in bad thumbnail quality
-var THUMBNAIL_SIDE = 97;
+var THUMBNAIL_SIDE = 120;
 var THUMBNAIL_BORDER_WIDTH = 1;
 var THUMBNAIL_SPACING = 6;
 var THUMBNAIL_WRAPPER_SIDE = THUMBNAIL_SIDE + THUMBNAIL_BORDER_WIDTH * 2;
