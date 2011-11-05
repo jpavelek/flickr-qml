@@ -47,15 +47,15 @@ Item {
     property alias source: thumb.source
 
     width: UI.THUMBNAIL_WRAPPER_SIDE; height: UI.THUMBNAIL_WRAPPER_SIDE
-    scale: scaleMe.scale
+    opacity: scaleMe.opacity
 
     Item {
         id: scaleMe
 
         anchors.centerIn: parent
-        scale: 0.0
+        opacity: 0.1  // Does not work with 0.0
 
-        Behavior on scale {
+        Behavior on opacity {
             NumberAnimation {
                 easing.type: Easing.InOutQuad
                 duration: 500
@@ -79,7 +79,7 @@ Item {
 
                 onStatusChanged: {
                     if (thumb.status == Image.Ready)
-                        scaleMe.scale = 1;
+                        scaleMe.opacity = 1.0;
                 }
             }
         }
