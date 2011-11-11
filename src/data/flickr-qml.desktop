@@ -4,5 +4,5 @@ Version=1.0
 Type=Application
 Terminal=false
 Name=Flickr QML
-Exec=/usr/bin/invoker --single-instance --type=d --splash /usr/share/pixmaps/flickr-qml-p.jpg --splash-landscape /usr/share/pixmaps/flickr-qml-l.jpg /usr/bin/flickr-qml
-Icon=icons-Applications-flickr
+Exec=/usr/bin/invoker --single-instance --type=d --splash /usr/share/pixmaps/flickr-qml-p-800x480.jpg --splash-landscape /usr/share/pixmaps/flickr-qml-l.jpg /usr/bin/flickr-qml
+Icon=/usr/share/pixmaps/icons-Applications-flickr.png
