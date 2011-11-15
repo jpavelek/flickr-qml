@@ -23,6 +23,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     view->show();
 #endif
 
+    view->setWindowTitle("Flickr");
     QObject::connect(view->engine(), SIGNAL(quit()), view, SLOT(close()));
 
     ImageSaver imageSaver;
