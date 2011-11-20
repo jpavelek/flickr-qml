@@ -10,9 +10,9 @@
         <file>qml/Thumbnail.qml</file>
         <file>qml/ThumbnailPage.qml</file>
         <file>qml/UIConstants.js</file>
-        <file>data/icon-m-toolbar-save-image.svg</file>
-        <file>data/searchbar-search-tags.svg</file>
-        <file>data/searchbar-clear-tags.svg</file>
-        <file>data/title-logo.svg</file>
+        <file>data/icon-m-toolbar-save-image.png</file>
+        <file>data/icons-Applications-flickr.png</file>
+        <file>data/searchbar-search-tags.png</file>
+        <file>data/searchbar-clear-tags.png</file>
     </qresource>
 </RCC>

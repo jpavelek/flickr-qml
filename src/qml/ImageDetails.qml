@@ -110,7 +110,7 @@ FlickrPage {
         }
         ToolIcon {
             id: detailsSaveButton
-            iconSource: "qrc:/data/icon-m-toolbar-save-image.svg"
+            iconSource: "qrc:/data/icon-m-toolbar-save-image.png"
             onClicked: {
                 imageSaver.save(image, photoUrl)
             }

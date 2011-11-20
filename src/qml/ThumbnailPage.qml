@@ -90,7 +90,7 @@ FlickrPage {
     }
     Image {
         id: titleLogo
-        source: "qrc:/data/title-logo.svg"
+        source: "qrc:/data/title-logo.png"
         anchors { left: parent.left; top: parent.top; leftMargin: UI.TITLE_MARGIN_LEFT; topMargin: UI.TITLE_MARGIN_TOP }
     }
 
@@ -106,7 +106,7 @@ FlickrPage {
             anchors { verticalCenter: parent.verticalCenter; right: parent.right; rightMargin: UI.SEARCH_PADDING_RIGHT }
             smooth: true
             fillMode: Image.PreserveAspectFit
-            source: "qrc:/data/searchbar-search-tags.svg"
+            source: "qrc:/data/searchbar-search-tags.png"
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
@@ -120,7 +120,7 @@ FlickrPage {
             anchors { verticalCenter: parent.verticalCenter; left: parent.left; leftMargin: UI.SEARCH_PADDING_RIGHT }
             smooth: true
             fillMode: Image.PreserveAspectFit
-            source: "qrc:/data/searchbar-clear-tags.svg"
+            source: "qrc:/data/searchbar-clear-tags.png"
             MouseArea {
                 anchors.fill: parent
                 onClicked: {
