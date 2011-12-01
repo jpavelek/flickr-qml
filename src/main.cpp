@@ -22,6 +22,11 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
 #endif
 
     view->setWindowTitle("Flickr");
+    //Flickr removal
+    view->setAttribute(Qt::WA_OpaquePaintEvent);
+    view->setAttribute(Qt::WA_NoSystemBackground);
+    view->viewport()->setAttribute(Qt::WA_OpaquePaintEvent);
+    view->viewport()->setAttribute(Qt::WA_NoSystemBackground);
     QObject::connect(view->engine(), SIGNAL(quit()), view, SLOT(close()));
 
     ImageSaver imageSaver;
