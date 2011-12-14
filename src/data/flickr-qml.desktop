@@ -5,4 +5,4 @@ Type=Application
 Terminal=false
 Name=Flickr QML
 Exec=/usr/bin/invoker --single-instance --type=d --splash /usr/share/pixmaps/flickr-qml-splash-p-800x480.png /usr/bin/flickr-qml
-Icon=/usr/share/pixmaps/icons-Applications-flickr.png
+Icon=icons-Applications-flickr

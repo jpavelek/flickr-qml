@@ -1,0 +1,16 @@
+Source: flickr-qml
+Section: user/other
+Priority: optional
+Maintainer: Jakub Pavelek <jpavelek@live.com>
+Build-Depends: debhelper (>= 5), libqt4-dev
+Standards-Version: 3.7.3
+Homepage: https://github.com/jpavelek/flickr-qml
+
+Package: flickr-qml
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Flickr-qml is small time killing apps for browsing free FLickr images
+ The Flickr-qml application is basically refactored Qt Flickr demo application 
+ to suit better the UI style on Harmattan and Nemo based devices.
+ It allows for browsing of free Flickr content and for simple querying.
+XSBC-Maemo-Display-Name: flickr-qml
