@@ -4,17 +4,13 @@ contains(MEEGO_EDITION,harmattan) {
   INCLUDEPATH += /usr/include/applauncherd
 }
 
-icon.files = src/data/icons-Applications-flickr.png
-icon.path = /usr/share/themes/base/meegotouch/icons/
-DEPLOYMENT += icon
+myicon.files = ./src/data/icons-Applications-flickr.png
+myicon.path = /usr/share/themes/base/meegotouch/icons/
+INSTALLS += myicon
 
-desktop.files = src/data/flickr-qml.desktop
-desktop.path = /usr/share/applications/
-DEPLOYMENT += desktop
-
-splash.files = src/data/flickr-qml-splash-p-800x480.png
-splash.path = /usr/share/pixmaps/
-DEPLOYMENT += splash
+mysplash.files = ./src/data/flickr-qml-splash-p-800x480.png
+mysplash.path = /usr/share/pixmaps/
+INSTALLS += mysplash
 
 QT+= declarative
 TEMPLATE = app
