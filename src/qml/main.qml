@@ -1,9 +1,12 @@
 import QtQuick 1.1
 import com.nokia.meego 1.0
 
+
+
 PageStackWindow {
     id: appWindow
     initialPage: thumbnailPage
+    Component.onCompleted: {theme.inverted = true }
 
     ThumbnailPage {
         id: thumbnailPage
@@ -22,7 +25,7 @@ PageStackWindow {
 
             ToolIcon {
                 id: refreshButton
-                iconId: "icon-m-toolbar-refresh"
+                iconId: "icon-m-toolbar-refresh-white"
                 onClicked: { photoFeedModel.reload() }
             }
             BusyIndicator {

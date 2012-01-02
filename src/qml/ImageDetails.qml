@@ -1,4 +1,4 @@
-import QtQuick 1.0
+import QtQuick 1.1
 import com.nokia.meego 1.0
 import "UIConstants.js" as UI
 
@@ -79,6 +79,11 @@ FlickrPage {
                         flickable.contentY = yoff - flickable.height / 2;
                     }
                     prevScale = scale;
+                }
+
+                PinchArea {
+                    pinch.target: image
+                    anchors.fill: image
                 }
             }
         }
